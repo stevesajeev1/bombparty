@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Bomb Party",
   "version": "1.0",
   "description": "Bomb Party game hack.",
@@ -7,16 +7,21 @@
     "32": "icons/icon-32.png",
     "64": "icons/icon-64.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "popup/index.html"
   },
   "content_scripts": [
     {
       "matches": ["https://*.jklm.fun/*"],
-      "js": ["bombparty.js"],
+      "js": ["browser-polyfill.min.js", "bombparty.js"],
       "all_frames": true
     }
   ],
-  "web_accessible_resources": ["dict.txt"],
+  "web_accessible_resources": [
+    {
+      "resources": ["dict.txt"],
+      "matches": ["https://*.jklm.fun/*"]
+    }
+  ],
   "permissions": ["storage"]
 }

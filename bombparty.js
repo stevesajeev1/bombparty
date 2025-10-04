@@ -1,8 +1,3 @@
-// Support multiple platforms
-if (typeof browser === "undefined") {
-  var browser = chrome;
-}
-
 let words = [];
 const usedWords = new Set();
 
