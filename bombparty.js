@@ -1,3 +1,8 @@
+// Support multiple platforms
+if (typeof browser === "undefined") {
+  var browser = chrome;
+}
+
 let words = [];
 const usedWords = new Set();
 
@@ -14,6 +19,7 @@ const search = (prompt) => {
   const results = words
     .filter((word) => word.includes(prompt) && !usedWords.has(word))
     .sort((a, b) => b.length - a.length);
+  if (results.length === 0) return "";
   const result = results[0];
 
   // Mark word as used
